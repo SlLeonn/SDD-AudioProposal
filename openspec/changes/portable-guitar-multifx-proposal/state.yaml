@@ -1,0 +1,38 @@
+schema: gentle-ai.sdd-preproposal/v1
+revision: 1
+change: portable-guitar-multifx-proposal
+artifact_store: openspec
+exploration:
+  outcome: completed
+  reference: openspec/changes/portable-guitar-multifx-proposal/exploration.md
+research:
+  selected: true
+  questions:
+    - Determine what evidence can responsibly support a strictly bounded affordability or market-position statement for portable guitar-practice processors or compact practice amplifiers.
+    - Do not assert a price, competitor feature, market position, performance, or image license without validated sources.
+  requested_source_classes:
+    - open-web
+  admission:
+    required_capability: gentle-ai.sdd-research-capability/v1
+    observed_exact_grants: []
+    outcome: denied
+  outcome: blocked
+  openspec_evidence_reference: openspec/changes/portable-guitar-multifx-proposal/research.md
+  engram_evidence_reference: null
+product_decisions:
+  status: confirmed
+  public_page_language: Spanish
+  project_identity: Portable Guitar MultiFX
+  repository_identity: portable-guitar-multifx
+  semester_prototype_boundary:
+    - guitar input
+    - compact amplification with a speaker
+    - small selectable effect set
+  comparison_boundary: Affordability or market-position copy requires validated evidence.
+  hero_image_boundary: A real-guitar photograph requires reusable license terms, required attribution, and accessible alt text.
+proposal_ready: false
+blocked_recovery:
+  reason: No exact gentle-ai.sdd-research-capability/v1 grant for open-web was supplied.
+  retained_selected_intent: true
+  required_action: Re-enter sdd-research with an exact open-web capability grant before making market or price comparison claims.
+next_recommended: recovery

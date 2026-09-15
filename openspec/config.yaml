@@ -1,0 +1,42 @@
+schema: spec-driven
+persistence: hybrid
+strict_tdd: false
+
+context: |
+  Workspace: /home/leon/projects/SDD-AudioProposal
+  Project status: empty workspace; no supported project markers discovered
+  Tech stack: not detected
+  Architecture: not established
+  Testing: no runner or workspace-level test command detected
+  Style: no source or project convention files detected
+
+testing:
+  detected_on: "2026-09-14"
+  workspace_test_command: ""
+  workspace_test_command_covers_all_projects: false
+  strict_tdd_reason: "No in-scope projects or explicit workspace-level test command were discovered."
+  projects: []
+
+rules:
+  proposal:
+    - Define user value, scope boundaries, risks, and rollback for risky changes.
+    - Do not scaffold the GitHub Pages presentation site during setup-only work.
+  specs:
+    - Use RFC 2119 keywords for normative requirements.
+    - Express scenarios with Given/When/Then.
+  design:
+    - Record architecture decisions and their rationale.
+  tasks:
+    - Group tasks by phase and keep each task completable in one session.
+  apply:
+    guidelines:
+      - Follow conventions established by the chosen implementation stack.
+      - Add tests with the selected stack before implementation when Strict TDD is enabled.
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: ""
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive specification deltas.
