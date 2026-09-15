@@ -51,5 +51,5 @@ Chain strategy: stacked-to-main
 
 - [x] 4.1 Manually verify `site/index.html` offline and JavaScript-disabled, including keyboard focus and 320px/desktop layouts.
 - [x] 4.2 Review image source/credit before publication; retain `site/index.html` as the local fallback if remote publication is unavailable.
-- [ ] 4.3 After 4.1–4.2 and PRs 1–3 merge to `main`, require `gh auth status`; use existing authentication only (no tokens or secrets) to run `gh repo create portable-guitar-multifx --public --source=. --remote=origin --push`.
-- [ ] 4.4 Select GitHub Actions as the public repository’s Pages source; inspect the `main` deployment URL and artifact, or leave the local fallback intact if authentication, creation, configuration, or deployment cannot run.
+- [x] 4.3 After 4.1–4.2 and PRs 1–3 merge to `main`, require `gh auth status`; use existing authentication only (no tokens or secrets) to run `gh repo create portable-guitar-multifx --public --source=. --remote=origin --push`.
+- [x] 4.4 Select GitHub Actions as the public repository’s Pages source; inspect the `main` deployment URL and artifact, or leave the local fallback intact if authentication, creation, configuration, or deployment cannot run.

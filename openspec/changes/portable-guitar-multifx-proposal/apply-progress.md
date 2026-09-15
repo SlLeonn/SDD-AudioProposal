@@ -1,7 +1,7 @@
 # Apply Progress: Portable Guitar MultiFX
 
 **Mode**: Standard
-**Delivery**: PR 1 stacked-to-main slice — Semantic Spanish pitch and contracts; PR 2 stacked-to-main slice — Visual, image, and navigation enhancement (browser proof complete); PR 3 stacked-to-main slice — Pages publication boundary (local proof complete)
+**Delivery**: PR 1 stacked-to-main slice — Semantic Spanish pitch and contracts; PR 2 stacked-to-main slice — Visual, image, and navigation enhancement (browser proof complete); PR 3 stacked-to-main slice — Pages publication boundary (local proof complete); public release completed under the parent-approved `size:exception` (native maximum: 435 lines).
 
 ## Completed Tasks
 
@@ -16,6 +16,8 @@
 - [x] 3.1 Create `README.md` with repository identity, bounded scope, GitHub Pages activation steps, and the direct-file fallback `site/index.html`.
 - [x] 3.2 Create `.github/workflows/deploy-pages.yml` with pinned Pages actions, minimum permissions, default checkout, exact `./site` artifact, and `main` ref guard.
 - [x] 3.3 Run the site and Pages workflow contracts without adding unsupported claims.
+- [x] 4.3 Verify the authorized `SlLeonn` GitHub CLI session, configure only the exact approved `origin`, create and push the initial `main` release commit.
+- [x] 4.4 Configure Pages with the GitHub Actions workflow, observe the successful deployment, and confirm the public page responds.
 
 ## Work Unit Evidence
 
@@ -57,13 +59,25 @@ The third stacked slice adds only the local documentation and GitHub Actions wor
 - The first focused run caught a test assumption that a deploy step must begin with `uses`; the workflow correctly labels the deployment step with `id` before `uses`. The contract now accepts that valid GitHub Actions step shape and the rerun passed.
 - A remote GitHub Actions run and published Pages URL are intentionally deferred to tasks 4.3–4.4. The design identifies them as separate release checks, so remote proof is not required to complete this local publication-boundary slice. No remote access was attempted.
 
+## Public Remote and Pages Release
+
+| Work unit | Focused test command and exact result | Runtime harness command/scenario and exact result | Rollback boundary |
+|---|---|---|---|
+| Public remote and Pages release | `node --test tests/site-contract.test.mjs tests/deploy-pages-workflow.test.mjs` — exit 0; 7 passed, 0 failed, 0 cancelled, 0 skipped, 0 todo; duration 142.401342 ms. | `gh auth status --hostname github.com` — exit 0; active account `SlLeonn`. The existing public target was `https://github.com/SlLeonn/SDD-AudioProposal` with no default branch, so `origin` was configured as `https://github.com/SlLeonn/SDD-AudioProposal.git`; initial commit `41e2684c0b40f35de2b4b379871bf80bc38fd83a` was pushed to `main`. `POST /repos/SlLeonn/SDD-AudioProposal/pages` selected `build_type: workflow`; run `35015314413` completed with `success`; `https://slleonn.github.io/SDD-AudioProposal/` returned `HTTP/2 200`. | Local: remove `origin` or revert follow-up release metadata independently; preserve `site/index.html` as the offline fallback. Remote: disable GitHub Pages, then revert the release commit on `main` with a new non-force push and allow the Pages workflow to deploy the revert. This initial commit contains all 19 approved project paths, so it must be reverted as one release unit; `.atl/` was never staged or published. |
+
+## Release Deviation
+
+- Task 4.3 named `gh repo create portable-guitar-multifx`, but the parent-authorized remote boundary allowed operations only on the already-existing public target `SlLeonn/SDD-AudioProposal`. The implementation therefore configured that exact `origin` and pushed the initial `main` commit; it did not create, inspect, or modify a differently named repository.
+
+- The design's `main` branch question is resolved: the empty target accepted the initial `main` push, and the successful workflow ran from that branch.
+
 ## Scope and Notes
 
 - The image and its credit are both omitted because no verified license record exists.
 - The Pages workflow uses default checkout, `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` for exactly `./site`, `actions/deploy-pages@v4`, least required permissions, and an explicit `main` job guard.
 - The responsive stylesheet and optional navigation script retain offline native-anchor behavior; the current-section state is an enhancement only.
-- No guitar image asset, remote repository, publication action, branch, commit, push, or commercial claim was added.
+- No guitar image asset or commercial claim was added. The public release contains only the 19 approved project paths; `.atl/` remains untracked and unpublished.
 
 ## Remaining Tasks
 
-- [ ] 4.1–4.4 Release checks and public publication.
+None. All implementation and release tasks are complete; independent SDD verification remains required.
